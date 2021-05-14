@@ -128,15 +128,6 @@ function Welcome({ user, addDangerToast }: WelcomeProps) {
   return (
     <WelcomeContainer>
       <Collapse defaultActiveKey={['1', '2', '3', '4']} ghost bigger>
-        <Collapse.Panel header={t('Recents')} key="1">
-          <ActivityTable
-            user={user}
-            activeChild={activeChild}
-            setActiveChild={setActiveChild}
-            loading={loading}
-            activityData={activityData}
-          />
-        </Collapse.Panel>
         <Collapse.Panel header={t('Dashboards')} key="2">
           {loading ? (
             <Loading position="inline" />
@@ -146,20 +137,6 @@ function Welcome({ user, addDangerToast }: WelcomeProps) {
               mine={activityData.myDash}
               isLoading={loading}
             />
-          )}
-        </Collapse.Panel>
-        <Collapse.Panel header={t('Saved queries')} key="3">
-          {loading ? (
-            <Loading position="inline" />
-          ) : (
-            <SavedQueries user={user} mine={activityData.myQuery} />
-          )}
-        </Collapse.Panel>
-        <Collapse.Panel header={t('Charts')} key="4">
-          {loading ? (
-            <Loading position="inline" />
-          ) : (
-            <ChartTable user={user} mine={activityData.myChart} />
           )}
         </Collapse.Panel>
       </Collapse>

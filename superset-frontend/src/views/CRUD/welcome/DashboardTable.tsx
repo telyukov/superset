@@ -28,7 +28,7 @@ import SubMenu from 'src/components/Menu/SubMenu';
 import EmptyState from './EmptyState';
 import { createErrorHandler, CardContainer } from '../utils';
 
-const PAGE_SIZE = 3;
+const PAGE_SIZE = 9;
 
 export interface FilterValue {
   col: string;
@@ -142,31 +142,6 @@ function DashboardTable({
             label: t('Mine'),
             onClick: () => {
               getData('Mine').then(() => setDashboardFilter('Mine'));
-            },
-          },
-        ]}
-        buttons={[
-          {
-            name: (
-              <>
-                <i className="fa fa-plus" />
-                Dashboard
-              </>
-            ),
-            buttonStyle: 'tertiary',
-            onClick: () => {
-              window.location.assign('/dashboard/new');
-            },
-          },
-          {
-            name: 'View All »',
-            buttonStyle: 'link',
-            onClick: () => {
-              const target =
-                dashboardFilter === 'Favorite'
-                  ? '/dashboard/list/?filters=(favorite:!t)'
-                  : '/dashboard/list/';
-              history.push(target);
             },
           },
         ]}
